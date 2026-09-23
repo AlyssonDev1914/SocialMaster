@@ -23,4 +23,9 @@ public class AtletaController {
         return atletaService.listarTodos();
     }
 
+    @PostMapping
+    public Atleta salvar (@RequestBody Atleta atleta) {
+        return atletaService.salvar(atleta);
+    }
+
 }
