@@ -23,4 +23,8 @@ public class AtletaService {
 
     }
 
+    public Atleta buscarPorId(Long id) {
+        return atletaRepository.findById(id).orElseThrow(() -> new RuntimeException("Atleta não encontrado (a) "));
+    }
+
 }

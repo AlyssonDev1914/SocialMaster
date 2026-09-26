@@ -23,6 +23,11 @@ public class AtletaController {
         return atletaService.listarTodos();
     }
 
+    @GetMapping ("/{id}")
+    public Atleta buscarPorId(@PathVariable long id) {
+        return atletaService.buscarPorId(id);
+    }
+
     @PostMapping
     public Atleta salvar (@RequestBody Atleta atleta) {
         return atletaService.salvar(atleta);
