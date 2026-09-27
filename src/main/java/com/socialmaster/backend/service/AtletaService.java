@@ -1,5 +1,6 @@
 package com.socialmaster.backend.service;
 
+import com.socialmaster.backend.AtletaNotFoundException;
 import com.socialmaster.backend.entity.Atleta;
 import com.socialmaster.backend.repository.AtletaRepository;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,8 @@ public class AtletaService {
     }
 
     public Atleta buscarPorId(Long id) {
-        return atletaRepository.findById(id).orElseThrow(() -> new RuntimeException("Atleta não encontrado (a) "));
+        return atletaRepository.findById(id)
+                .orElseThrow(() -> new AtletaNotFoundException("Atleta não encontrado (a) "));
     }
 
 }
