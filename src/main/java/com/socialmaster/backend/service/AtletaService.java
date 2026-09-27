@@ -26,7 +26,24 @@ public class AtletaService {
 
     public Atleta buscarPorId(Long id) {
         return atletaRepository.findById(id)
-                .orElseThrow(() -> new AtletaNotFoundException("Atleta não encontrado (a) "));
+                .orElseThrow(() -> new AtletaNotFoundException("Atleta não encontrado"));
     }
+
+    public Atleta atualizar(Long id, Atleta  atletaAtualizado){
+
+        Atleta atleta = atletaRepository.findById(id)
+                .orElseThrow(() -> new AtletaNotFoundException("Atleta não encontrado"));
+
+        atleta.setNome(atletaAtualizado.getNome());
+        atleta.setEmail(atletaAtualizado.getEmail());
+        atleta.setDataNascimento(atletaAtualizado.getDataNascimento());
+        atleta.setFaixa(atletaAtualizado.getFaixa());
+        atleta.setPeso(atletaAtualizado.getPeso());
+
+        return atletaRepository.save(atleta);
+
+
+    }
+
 
 }
