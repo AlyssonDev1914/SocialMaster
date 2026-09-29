@@ -24,13 +24,18 @@ public class AtletaController {
     }
 
     @GetMapping ("/{id}")
-    public Atleta buscarPorId(@PathVariable long id) {
+    public Atleta buscarPorId(@PathVariable Long id) {
         return atletaService.buscarPorId(id);
     }
 
     @PostMapping
     public Atleta salvar (@RequestBody Atleta atleta) {
         return atletaService.salvar(atleta);
+    }
+
+    @PutMapping("/{id}")
+    public Atleta atualizar (@PathVariable Long id, @RequestBody Atleta atleta ) {
+        return atletaService.atualizar(id, atleta);
     }
 
 }
