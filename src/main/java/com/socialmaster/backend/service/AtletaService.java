@@ -45,5 +45,13 @@ public class AtletaService {
 
     }
 
+    public void deletar(Long id) {
+
+        Atleta atleta = atletaRepository.findById(id)
+                        .orElseThrow(() -> new AtletaNotFoundException("Atleta não encontrado"));
+
+        atletaRepository.deleteById(id);
+    }
+
 
 }

@@ -38,4 +38,9 @@ public class AtletaController {
         return atletaService.atualizar(id, atleta);
     }
 
+    @DeleteMapping ("/{id}")
+    public void deletar(@PathVariable Long id) {
+        atletaService.deletar(id);
+    }
+
 }
