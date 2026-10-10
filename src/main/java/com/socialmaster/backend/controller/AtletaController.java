@@ -4,6 +4,8 @@ import com.socialmaster.backend.entity.Atleta;
 import com.socialmaster.backend.service.AtletaService;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 @RestController  //Essa classe vai receber requisições HTTP e devolver dados
@@ -29,7 +31,7 @@ public class AtletaController {
     }
 
     @PostMapping
-    public Atleta salvar (@RequestBody Atleta atleta) {
+    public Atleta salvar (@Valid @RequestBody Atleta atleta) {
         return atletaService.salvar(atleta);
     }
 

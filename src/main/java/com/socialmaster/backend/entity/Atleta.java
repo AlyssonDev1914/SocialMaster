@@ -1,5 +1,12 @@
 package com.socialmaster.backend.entity;
 
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -22,14 +29,21 @@ public class Atleta {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotBlank
     private String nome;
 
+    @NotBlank
+    @Email
     private String email;
 
+    //Data de nascimento do atleta
+    @NotNull
     private LocalDate dataNascimento;
 
     private String faixa;
 
+    @NotNull
+    @Positive
     private Double peso;
 
 
