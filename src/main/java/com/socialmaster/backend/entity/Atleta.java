@@ -40,7 +40,9 @@ public class Atleta {
     @NotNull
     private LocalDate dataNascimento;
 
-    private String faixa;
+    @NotNull
+    @Enumerated (EnumType.STRING)
+    private Faixa faixa;
 
     @NotNull
     @Positive
@@ -77,11 +79,11 @@ public class Atleta {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getFaixa() {
+    public Faixa getFaixa() {
         return faixa;
     }
 
-    public void setFaixa(String faixa) {
+    public void setFaixa(Faixa faixa) {
         this.faixa = faixa;
     }
 
