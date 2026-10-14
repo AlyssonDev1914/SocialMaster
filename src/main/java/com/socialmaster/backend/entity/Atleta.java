@@ -29,7 +29,7 @@ public class Atleta {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotBlank
+    @NotBlank(message = "O nome não pode ficar vazio")
     private String nome;
 
     @NotBlank
